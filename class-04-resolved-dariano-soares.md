@@ -1,7 +1,7 @@
 # MongoDB - Aula 03 - Exercício
 autor: Dariano Soares
 
-1.**Adicionar** 2 ataques ao mesmo tempo para os seguintes pokemons, Bulbassauro e Charmander.
+##1. Adicionar 2 ataques ao mesmo tempo para os seguintes pokemons, Bulbassauro e Charmander.
 
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { nome: {$in : ["Bulbassauro", "Charmander"]} }
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = { $inc: { attack: 2}}
@@ -15,7 +15,7 @@ autor: Dariano Soares
     })
 
 
-2.** Adicionar** 1 movimento em todos os pokemons: 'desvio'.
+##2. Adicionar 1 movimento em todos os pokemons: 'desvio'.
 
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = {}
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = { $push: { moves: "desvio" }}
@@ -28,7 +28,7 @@ autor: Dariano Soares
       "nModified": 10
     })
 
-3. **Adicionar** o pokemon 'AindaNaoExisteMon' caso ele nao exista com todos os dados com o valor 'null' e a descricao: 'Sem maiores informacoes'.
+##3. Adicionar o pokemon 'AindaNaoExisteMon' caso ele nao exista com todos os dados com o valor 'null' e a descricao: 'Sem maiores informacoes'.
 
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { nome: /AindaNaoExisteMon/i}
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = {
@@ -53,7 +53,7 @@ autor: Dariano Soares
     })
 
 
-4. Pesquisar todos os pokemons que possuam o ataque 'investida' e mais um que voce adicionou, escolha seu pokemon favorito.
+##4. Pesquisar todos os pokemons que possuam o ataque 'investida' e mais um que voce adicionou, escolha seu pokemon favorito.
 
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: { $all:  ["investida", "lança-chamas"]}}
     dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
@@ -74,7 +74,7 @@ autor: Dariano Soares
     Fetched 1 record(s) in 3ms
 
 
-5. Pesquisar **todos** os pokemons que possuam os ataques que voce adicionou, escolha seu pokemon favorito.
+##5. Pesquisar todos os pokemons que possuam os ataques que voce adicionou, escolha seu pokemon favorito.
 
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: { $all: ["investida", "folha navalha", "desvio"]}}
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
@@ -94,23 +94,23 @@ autor: Dariano Soares
 	}
 	Fetched 1 record(s) in 5ms
 
-6. Pesquisar **todos** os pokemons que nao sao do tipo 'eletrico'.
+##6. Pesquisar todos os pokemons que nao sao do tipo 'eletrico'.
 
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { type: {$ne: "eletrico"}}
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
 	Fetched 11 record(s) in 6ms
 
 
-7. Pesquisar **todos** os pokemons que tenha o ataque 'investida' **E** tenham a defesa **nao menor ou igual** a  49.
+##7. Pesquisar todos os pokemons que tenha o ataque 'investida' E tenham a defesa nao menor ou igual a  49.
 
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var queryInvestida = { $all: ["investida"]}
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var queryDefesa = { $not: { $gte: 49}}
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: queryInvestida, attack: queryDefesa }
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
 
-Fetched 5 record(s) in 7ms
+	Fetched 5 record(s) in 7ms
 
-8. Remova **todos** os pokemons do tipo agua e com attack menor que 50.
+##8. Remova todos os pokemons do tipo agua e com attack menor que 50.
 
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query2 = { $and: [ { type: "água"},{ attack: { $lt: 50}} ] }
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query2)
