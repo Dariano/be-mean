@@ -1,164 +1,119 @@
 # MongoDB - Aula 03 - Exercício
 autor: Dariano Soares
 
-## Consultas usando operadores aritméticos
+##1. **Adicionar** 2 ataques ao mesmo tempo para os seguintes pokemons, Bulbassauro e Charmander.
 
-## 1. Liste todos Pokemons com a altura menor que 0.5
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { nome: {$in : ["Bulbassauro", "Charmander"]} }
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = { $inc: { attack: 2}}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var options = { multi: true}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.update(query, mod, options)
+    Updated 2 existing record(s) in 3ms
+    WriteResult({
+      "nMatched": 2,
+      "nUpserted": 0,
+      "nModified": 2
+    })
 
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> var query = { height: { $lt: 0.5}}
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> db.pokemons.find(query)
-	{
-	   "_id": ObjectId("56429658ce29771f1d16afba"),
-	   "nome": "Pikachu",
-	   "description": "Rato elétrico bem fofinho",
-	   "type": "electric",
-	   "attack": 100,
-	   "height": 0.4
- 	}
- 	{
-	   "_id": ObjectId("56429705ce29771f1d16afbb"),
-	   "nome": "Bulbassauro",
-	   "description": "Chicote de trepadeira",
-	   "type": "grama",
-	   "attack": 49,
-	   "height": 0.4
-	}
- 	{
-	   "_id": ObjectId("56429871ce29771f1d16afbe"),
-	   "name": "Caterpie",
-	   "description": "Larva lutadora",
-	   "type": "inseto",
-	   "attack": 30,
-	   "height": 0.3,
-	   "defense": 35
-	}
-	Fetched 3 record(s) in 2ms
 
-## 2. Liste todos Pokemons com a altura maior ou igual que 0.5 
+##2. ** Adicionar** 1 movimento em todos os pokemons: 'desvio'.
 
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> var query = { height: { $gte: 0.5} }
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> db.pokemons.find(query)
-	{
-	  "_id": ObjectId("56429748ce29771f1d16afbc"),
-	  "nome": "Charmander",
-	  "description": "Esse é o cão chupando manga do fofinho",
-	  "type": "fogo",
-	  "attack": 48,
-	  "height": 0.5
-	}
-	{
-	  "_id": ObjectId("5642977cce29771f1d16afbd"),
-	  "nome": "Squirtle",
-	  "description": "Ejeta água que passarinho não bebe",
-	  "type": "água",
-	  "attack": 48,
-	  "height": 0.5
-	}
-	{
-	  "_id": ObjectId("5642a05eeb28f474ff7dd11a"),
-	  "nome": "Exploud",
-	  "description": "Exploud provoca terremotos com os tremores que ela cria por berros.",
-	  "type": "Loud Noise",
-	  "attack": 48,
-	  "height": 1.5
-	}
-	{
-	  "_id": ObjectId("5642a064eb28f474ff7dd11b"),
-	  "nome": "Machop",
-	  "description": "Os músculos de Machop são especiais, eles nunca ficam doloridos não importa o quanto eles são usados em exercício.",
-	  "type": "Loud Noise",
-	  "attack": 40,
-	  "height": 0.8
-	}
-	{
-	   "_id": ObjectId("5642a068eb28f474ff7dd11c"),
-	   "nome": "Haunter",
-	   "description": "Haunter é um Pokémon perigoso. Se alguém acena-lhe enquanto flutuando na escuridão, você nunca deve abordá-lo.",
-	   "type": "Gases",
-	   "attack": 54,
-	   "height": 1.6
-	}
-	{
-	  "_id": ObjectId("5642a06deb28f474ff7dd11d"),
-	  "nome": "Lickilicky",
-	  "description": "Ela envolve as coisas com a língua extensível.",
-	  "type": "Licking",
-	  "attack": 44,
-	  "height": 1.7
-	}
-	{
-	  "_id": ObjectId("5642a070eb28f474ff7dd11e"),
-	  "nome": "Delphox",
-	  "description": "Ela envolve as coisas com a língua extensível.",
-	  "type": "Fox",
-	  "attack": 47,
-	  "height": 1.5
-	}
-	Fetched 7 record(s) in 5ms
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = {}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = { $push: { moves: "desvio" }}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var options = { multi: true}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.update(query, mod, options)
+    Updated 10 existing record(s) in 12ms
+    WriteResult({
+      "nMatched": 10,
+      "nUpserted": 0,
+      "nModified": 10
+    })
 
-## 3. Liste todos Pokemons com a altura menor ou igual que 0.5 E do tipo grama
+##3. **Adicionar** o pokemon 'AindaNaoExisteMon' caso ele nao exista com todos os dados com o valor 'null' e a descricao: 'Sem maiores informacoes'.
 
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> var query = { $and: [{ type: 'grama'}, { height:{ $lte: 0.5} }]}
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> db.pokemons.find(query)
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { nome: /AindaNaoExisteMon/i}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var mod = {
+        $setOnInsert :
+            {
+              "active": false,
+              "nome": "AindaNaoExisteMon",
+              "attack": null,
+              "defense": null,
+              "height": null,
+              "description": "Sem maiores informações",
+            }
+    }
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var options = { upsert: true}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.update(query, mod, options)
+    Updated 1 new record(s) in 4ms
+    WriteResult({
+      "nMatched": 0,
+      "nUpserted": 1,
+      "nModified": 0,
+      "_id": ObjectId("564be3a88fdcb426e18aba11")
+    })
+
+
+##4. Pesquisar todos os pokemons que possuam o ataque 'investida' e mais um que voce adicionou, escolha seu pokemon favorito.
+
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: { $all:  ["investida", "lança-chamas"]}}
+    dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
+    {
+      "_id": ObjectId("56429748ce29771f1d16afbc"),
+      "nome": "Charmander",
+      "description": "Esse é o cão chupando manga do fofinho",
+      "type": "fogo",
+      "attack": 52,
+      "height": 0.5,
+      "active": false,
+      "moves": [
+        "investida",
+        "lança-chamas",
+        "desvio"
+      ]
+    }
+    Fetched 1 record(s) in 3ms
+
+
+##5. Pesquisar **todos** os pokemons que possuam os ataques que voce adicionou, escolha seu pokemon favorito.
+
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: { $all: ["investida", "folha navalha", "desvio"]}}
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
 	{
-	  "_id": ObjectId("56429705ce29771f1d16afbb"),
-	  "nome": "Bulbassauro",
-	  "description": "Chicote de trepadeira",
-	  "type": "grama",
-	  "attack": 49,
-	  "height": 0.4
- 	}
-	Fetched 1 record(s) in 1ms
-
-## 4. Liste todos Pokemons com o nome 'Pikachu' OU com attack menor ou igual que 0.5
-
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> var query = { $or: [{ nome: 'Pikachu'}, { attack: { $lte: 0.5}}]}
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> db.pokemons.find(query)
-	{
-	  "_id": ObjectId("56429658ce29771f1d16afba"),
-	  "nome": "Pikachu",
-	  "description": "Rato elétrico bem fofinho",
-	  "type": "electric",
-	  "attack": 100,
-	  "height": 0.4
+		"_id": ObjectId("56429705ce29771f1d16afbb"),
+		"nome": "Bulbassauro",
+		"description": "Chicote de trepadeira",
+		"type": "grama",
+		"attack": 51,
+		"height": 0.4,
+		"active": false,
+		"moves": [
+		"investida",
+		"folha navalha",
+		"desvio"
+		]
 	}
-	Fetched 1 record(s) in 1ms
+	Fetched 1 record(s) in 5ms
 
-## 5. liste todos Pokemons com attack MAIOR OU IGUAL QUE 48 E com height menor ou igual que 0.5
+##6. Pesquisar **todos** os pokemons que nao sao do tipo 'eletrico'.
 
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> var query = { $and: [{ attack: { $gte: 48}}, { height: { $lte: 0.5}}]}
-	dariano-IC4I(mongod-2.6.3) be-mean-pokemons> db.pokemons.find(query)
-	{
-	  "_id": ObjectId("56429658ce29771f1d16afba"),
-	  "nome": "Pikachu",
-	  "description": "Rato elétrico bem fofinho",
-	  "type": "electric",
-	  "attack": 100,
-	  "height": 0.4
-	}
-	{
-	  "_id": ObjectId("56429705ce29771f1d16afbb"),
-	  "nome": "Bulbassauro",
-	  "description": "Chicote de trepadeira",
-	  "type": "grama",
-	  "attack": 49,
-	  "height": 0.4
-	}
-	{
-	  "_id": ObjectId("56429748ce29771f1d16afbc"),
-	  "nome": "Charmander",
-	  "description": "Esse é o cão chupando manga do fofinho",
-	  "type": "fogo",
-	  "attack": 48,
-	  "height": 0.5
-	}
- 	{
-	  "_id": ObjectId("5642977cce29771f1d16afbd"),
-	  "nome": "Squirtle",
-	  "description": "Ejeta água que passarinho não bebe",
-	  "type": "água",
-	  "attack": 48,
-	  "height": 0.5
-	}
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { type: {$ne: "eletrico"}}
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
+	Fetched 11 record(s) in 6ms
 
-	Fetched 4 record(s) in 5ms
+
+##7. Pesquisar **todos** os pokemons que tenha o ataque 'investida' **E** tenham a defesa **nao menor ou igual** a  49.
+
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var queryInvestida = { $all: ["investida"]}
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var queryDefesa = { $not: { $gte: 49}}
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query = { moves: queryInvestida, attack: queryDefesa }
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query)
+
+Fetched 5 record(s) in 7ms
+
+##8. Remova **todos** os pokemons do tipo agua e com attack menor que 50.
+
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query2 = { $and: [ { type: "água"},{ attack: { $lt: 50}} ] }
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query2)
+	Fetched 0 record(s) in 0ms
+
+
