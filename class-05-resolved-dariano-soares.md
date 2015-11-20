@@ -188,7 +188,7 @@ autor: Dariano Soares
 		  "height": "3",
 		  "hp": 45,
 		  "name": "Caterpie",
-		  "speed": 45,
+		  "speed": 45,cond: { defense: { $gt: 40}},
 		  "types": [
 		    "bug"
 		  ]
@@ -344,6 +344,7 @@ autor: Dariano Soares
 ```
 	db.pokemons.group({
 	    initial: { total: 0},
+	    cond: { defense: { $gt: 40}},
 	    reduce: function(curr, result){
 		curr.types.forEach(function(type){
 		    if(result[type]){
