@@ -1,4 +1,4 @@
-# MongoDB - Aula 03 - Exercício
+# MongoDB - Aula 04 - Exercício
 autor: Dariano Soares
 
 ##1. Adicionar 2 ataques ao mesmo tempo para os seguintes pokemons, Bulbassauro e Charmander.
@@ -113,7 +113,7 @@ autor: Dariano Soares
 ##8. Remova todos os pokemons do tipo agua e com attack menor que 50.
 
 	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> var query2 = { $and: [ { type: "água"},{ attack: { $lt: 50}} ] }
-	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.find(query2)
+	dariano-IC4I(mongod-3.0.7) be-mean-mongodb> db.pokemons.remove(query2)
 	Fetched 0 record(s) in 0ms
 
 
