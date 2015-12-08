@@ -48,5 +48,7 @@ db.pokemons.createIndex({ name: 1, attack: 1})
 
 ##6. Refazer a query para os dois campos juntos utilizando `explain` para ver o resultado da busca
 ```js
+db.pokemons.find({name : /magneton/i, attack: 60 }).explain('executionStats').executionStats.totalDocsExamined
 
+1
 ```
