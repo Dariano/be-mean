@@ -52,6 +52,11 @@ Referência -> Livro Construindo Aplicações com NodeJS, William Bruno Moraes.
 ```
 ##6. Qual a versão do seu `node`?
 ```
-
+node -v
+v5.1.0
 ```
 ##7. Qual a versão do seu `npm`?
+```
+npm -v
+3.3.12
+```
