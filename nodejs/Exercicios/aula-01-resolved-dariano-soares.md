@@ -2,8 +2,23 @@
 autor: Dariano Soares
 
 ##1. Explique como um `processo síncrono e assíncrono` roda no Node.js, dê um exemplo para casa.
-```
+```js
+Um procedimento **Sícrono** é aquele em que uma operação ocorre após o término de outra.
 
+console.log('1');
+
+correr();
+
+console.log('3');
+
+function carrer(){
+	console.log('2');
+}
+
+Um procedimento **assíncrono** não bloqueia a execução do código. Se um procedimento leva certo tempo para ser encerrado, a linha após esse procedimento será executada antes dele terminar.
+
+
+Referência -> Livro Construindo Aplicações com NodeJS, William Bruno Moraes.
 ```
 ##2. Como o v8 executa JavaScript? Demostre 1 exemplo com código ou imagem.
 ```
