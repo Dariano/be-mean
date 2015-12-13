@@ -2,9 +2,9 @@
 autor: Dariano Soares
 
 ##1. Por que quando requisitamos ao nosso servidor de Query String, **com o Chrome**, ele executa 2 requisições, sendo a última "vazia"?
-```
 
-```
+São feita duas requisições uma para **trazer os dados** e a segunda para **trazer o favicon.ico**.
+
 ##2. Qual a DIFERENÇA entre o GET e o POST?
 **GET** Recupera uma representação do recurso especificado. Uma requisição GET não deve alterar o estado do servidor, e é essencialmente uma operação de leitura.
 
