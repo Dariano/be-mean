@@ -8,7 +8,7 @@ São feita duas requisições uma para **trazer os dados** e a segunda para **tr
 ##2. Qual a DIFERENÇA entre o GET e o POST?
 **GET** Recupera uma representação do recurso especificado. Uma requisição GET não deve alterar o estado do servidor, e é essencialmente uma operação de leitura.
 
-**POST** É suando para se criar novos recursos no servidor. Usos típicos de requisição POST são o envio de formulários HTML e a adição de dados a uma base de dados.
+**POST** É usado para se criar novos recursos no servidor. Usos típicos de requisição POST são o envio de formulários HTML e a adição de dados a uma base de dados.
 
 Referencia -> Livro Pro Node.js para Desenvolvedores. Autor: Colin J. Ihrig
 ##3. Crie um Pokemon na nossa API com seu nome, depois modifique o seu nome pelo User do Github, colocando aqui a resposta de cada passo?
