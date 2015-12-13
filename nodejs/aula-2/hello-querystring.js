@@ -19,6 +19,8 @@ let server = http.createServer(function(req, res) {
 	res.write("</ul>");
 	res.write("</body></html>");
 	res.end();
+
+	console.log('passei por aqui');
 });
 
 server.listen(3000, function() {
