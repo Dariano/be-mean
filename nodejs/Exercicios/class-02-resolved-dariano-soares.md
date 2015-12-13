@@ -3,10 +3,10 @@ autor: Dariano Soares
 
 ##1. Quai são os 4 verbos que utilizamos para o `CRUD`?
 
-**Create   	- POST**
-**Retrieve 	- GET**
-**Update 	- PUT**
-**Delete 	- DELETE**
+- **Create   	- POST**
+- **Retrieve 	- GET**
+- **Update 	- PUT**
+- **Delete 	- DELETE**
 
 ##2. Para que foram iventados os Status Code? Dê exemplos de 1 código por grupo e a imagem do `Cat Status Code`.
 
@@ -37,9 +37,9 @@ Referência -> Livro Construindo Aplicações com NodeJS, William Bruno Moraes
 
 **Querystring** é o padrão que o protocolo HTTP utiliza para transporte de informações do cliente para o servidor.
 Devemos utilizar a query para filtrar dados. A sintaxe de uma query string é <busca>=<valor>. Indicamos que vamos concatenar mais uma busca após outra com o caracter &(e comercial). O início da query string é indicado pelo caractere ? (interrogação).
-
+```
 ex: ?<query>=<value>&<query2>=<value2>&<query3>=<value3>
-
+```
 Referência -> Livro Construindo Aplicações com NodeJS, William Bruno Moraes
 ##5. Escreva no código do `server.js` uma forma de entregar um JSON de sucesso em 4 rotas diferentes:
 ```js
