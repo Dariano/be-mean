@@ -83,4 +83,4 @@ media 25
 
 ```
 ##4. Explicar a definição de **continuação de uma função**.
-	**Continuação de uma função** é basicamente a execução de procedimento de uma função e logo após é invocado outra função que executa o seu procedimento e logo após chama outra função e assim pode continuar o fluxo. Isso também pode se chamadar de "callback hell".
+**Continuação de uma função** é basicamente a execução de procedimento de uma função e logo após é invocado outra função que executa o seu procedimento e logo após chama outra função e assim pode continuar o fluxo. Isso também pode se chamadar de "callback hell".
