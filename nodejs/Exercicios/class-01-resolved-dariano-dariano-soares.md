@@ -34,7 +34,7 @@ function correr(){
 Referência -> Livro Construindo Aplicações com NodeJS, William Bruno Moraes.
 
 ##2. Como o v8 executa JavaScript? Demostre 1 exemplo com código ou imagem.
-(http://image.slidesharecdn.com/15fuv8js7ulf1nzuakfe-140628073041-phpapp01/95/nodejs-enterprise-middleware-25-638.jpg?cb=1403940779)
+![Node.js Architecture](http://image.slidesharecdn.com/15fuv8js7ulf1nzuakfe-140628073041-phpapp01/95/nodejs-enterprise-middleware-25-638.jpg?cb=1403940779)
 
 ##3. Qual a diferença entre um sitema `single` para um `multi-thread`?
 Em **Single Thread** cada aplicação terá instância de um unico processo. Uma tarefa será executa enquanto a outra fica aguardando o termino da primeira para ser executada na seguência. 
