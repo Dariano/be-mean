@@ -1,5 +1,5 @@
 /*
-	Um fluxo de escrita personalizado que conta os bytes que processa.
+	Encanando dados para o fluxo de escrita
 */
 
 var Stream = require('stream');
@@ -22,3 +22,7 @@ stream.end = (buffer) => {
 
 	console.log(bytes + ' bytes escritos');
 };
+
+stream.pipe(stream);
+stream.emit('data', new Buffer('Panela velha é que faz comida boa.'));
+stream.emit('end');
