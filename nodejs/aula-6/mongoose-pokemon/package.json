@@ -1,0 +1,14 @@
+{
+  "name": "aula-6",
+  "version": "1.0.0",
+  "description": "praticando exercicio da aula 6",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dariano",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.3.6"
+  }
+}
