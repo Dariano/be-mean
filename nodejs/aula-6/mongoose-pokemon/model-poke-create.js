@@ -19,7 +19,7 @@ dario.save(function(err, data) {
 
 // ou
 
-// DarioModel.create({ name: 'dario'}, function (err, data) {
+// DarioModel.create({ name: 'dario create'}, function (err, data) {
 // 	f (err) return console.log("Erro", err);
 
 // 	return console.log('Inseriu', data);

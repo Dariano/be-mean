@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-var dbURI = 'mongodb://localhost/be-mean-instagram';
-mongoose.connect('mongodb://localhost/be-mean-instagram');
+var dbURI = 'mongodb://localhost/be-mean-pokemons';
+mongoose.connect('mongodb://localhost/be-mean-mongodb');
 
 mongoose.connection.on('connected', () => {
 	console.log('Mongoose default connection apen to ');
