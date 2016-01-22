@@ -1,0 +1,25 @@
+{
+  "name": "aular-5",
+  "version": "1.0.0",
+  "description": "aula 5 do be-mean",
+  "main": "index.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "keywords": [
+    "nodejs",
+    "mongodb",
+    "be-mean"
+  ],
+  "author": "dariano",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.3.6"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  },
+  "optionalDependencies": {
+    "colors": "^1.1.2"
+  }
+}
