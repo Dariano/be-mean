@@ -1,0 +1,18 @@
+{
+  "name": "mongoose-atomic",
+  "version": "0.0.1",
+  "description": "Atomic design",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "mongoose"
+  ],
+  "author": "dariano",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^4.3.7"
+  }
+}
