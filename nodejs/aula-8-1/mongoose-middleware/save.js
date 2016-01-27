@@ -1,6 +1,6 @@
 'use strict';
 
-const Pokemon = require('../mongoose-middleware/models/pokemons_error');
+const Pokemon = require('../mongoose-middleware/models/pokemons');
 
 const novoPoke = new Pokemon({
 	name: 'Pompeu',
