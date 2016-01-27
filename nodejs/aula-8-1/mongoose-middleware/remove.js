@@ -9,5 +9,5 @@ Pokemon.findOne({
 		if (err)
 			console.log(err || 'removed');
 
-	})
+	});
 });
