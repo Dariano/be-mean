@@ -1,17 +1,15 @@
 'use strict';
 
-const Pokemon = require('../mongoose-middleware/models/pokemons');
+const blog = require('../mongoose-middleware/models/exercicio-1');
 
-const novoPoke = new Pokemon({
-	name: 'Pompeu',
-	description: 'a big pokemon',
-	type: 'karate',
-	attack: 50,
-	defense: 99,
-	height: 1.82
+const novoBlog = new blog({
+	name: 'Be Mean 1',
+	title: 'Nodejs aula 8 parte 5 - 5'
 });
 
-novoPoke.save(err => {
-	if (err) 
+novoBlog.save((err, doc) => {
+	if (err)
 		console.log(err);
+
+	console.log(doc);
 });
