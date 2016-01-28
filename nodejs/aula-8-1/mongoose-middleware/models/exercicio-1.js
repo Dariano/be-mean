@@ -26,7 +26,6 @@ function blog() {
 	});
 
 	schema.post('find', function(docs) {
-
 		docs.forEach(doc => log('blog', `${doc.title} foi encontrado.`));
 	});
 
