@@ -140,12 +140,21 @@ Middleware **find**
 			}
 		});
 
-		schema.post('find', function(doc) {
-			log('blog', `${doc.title} ${doc._id} foi encontrado.`);
+		schema.post('find', function(docs) {
+			docs.forEach(doc => log('blog', `${doc.title} foi encontrado.`));
 		});
-
+		
 		return mongoose.model('Blog', schema);
 	}
 
 	module.exports = blog();
+```
+
+```md
+	blog : Nodejs aula 8 parte 5 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
+	blog : Nodejs aula 8 parte 5 - 1 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
+	blog : Nodejs aula 8 parte 5 - 2 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
+	blog : Nodejs aula 8 parte 5 - 3 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
+	blog : Nodejs aula 8 parte 5 - 4 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
+	blog : Nodejs aula 8 parte 5 - 5 foi encontrado. : Thu Jan 28 2016 01:05:28 GMT-0200 (BRST) 
 ```

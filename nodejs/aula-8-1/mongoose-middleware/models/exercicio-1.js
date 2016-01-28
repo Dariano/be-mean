@@ -25,8 +25,9 @@ function blog() {
 		}
 	});
 
-	schema.post('find', function(doc) {
-		log('blog', `${doc.title} ${doc._id} foi encontrado.`);
+	schema.post('find', function(docs) {
+
+		docs.forEach(doc => log('blog', `${doc.title} foi encontrado.`));
 	});
 
 	return mongoose.model('Blog', schema);
