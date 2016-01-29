@@ -6,7 +6,7 @@ const Controller = require('./controller');
 
 var server = http.createServer(function(req, res) {
 	const url_parts = url.parse(req.url);
-	
+
 	switch (url_parts.pathname) {
 		case '/api/users/create':
 			Controller.create(req, res);
@@ -15,10 +15,13 @@ var server = http.createServer(function(req, res) {
 			Controller.update(req, res);
 			break;
 		case '/api/users/retreive':
-			Controller.retreive(req, res);
+			Controller.find(req, res);
+			break;
+		case '/api/users/get':
+			Controller.findOne(req, res);
 			break;
 		case '/api/users/delete':
-			Controller.delete(req, res);
+			Controller.remove(req, res);
 			break;
 		defaul
 			res.end('ROTA NÃO ENCONTRADA');

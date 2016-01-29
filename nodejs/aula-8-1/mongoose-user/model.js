@@ -4,84 +4,70 @@ const mongoose = require('mongoose');
 const Schema = require('./schema');
 const querystring = require('querystring');
 const url = require('url');
-
 const User = mongoose.model('User', Schema);
 
+const callBack = (err, data, res) => {
+	if (err) return res.end(JSON.stringify(err.errors));
+
+	res.writeHead(200, {
+		'Content-Type': 'application/json'
+	});
+
+	return res.end(JSON.stringify(data));
+};
+
+const getQuery = (_url) => {
+	const url_parts = url.parse(_url);
+	return querystring.parse(url_parts.query);
+};
+
+const create = (req, res) => {
+	var queryData = '';
+	req.on('data', (data) => {
+		queryData += data;
+	});
+
+	req.on('end', () => {
+		const obj = querystring.parse(queryData);
+
+		User.create(obj, (err, data) => callBack(err, data, res));
+	})
+};
+const find = (req, res) => {
+	const query = getQuery(req.url);
+
+	User.find(query, (err, data) => callBack(err, data, res));
+};
+const findOne = (req, res) => {
+	const query = getQuery(req.url);
+
+	User.findOne(query, (err, data) => callBack(err, data, res));
+};
+const update = (req, res) => {
+	var queryData = '';
+	req.on('data', (data) => {
+		queryData += data;
+	});
+
+	req.on('end', () => {
+		const mod = querystring.parse(queryData);
+		const query = getQuery(req.url);
+
+		User.update(query, mod, (err, data) => callBack(err, data, res));
+	})
+};
+const remove = (req, res) => {
+	const query = getQuery(req.url);
+
+	User.remove(query, (err, data) => callBack(err, data, res));
+};
+
 const REPOSITORY = {
-	create: (req, res) => {
-		var queryData = '';
-		req.on('data', (data) => {
-			queryData += data;
-		});
-
-		req.on('end', () => {
-			const obj = querystring.parse(queryData);
-
-			User.create(obj, (err, data) => {
-				if (err) return res.end(JSON.stringify(err.errors));
-
-				res.writeHead(200, {
-					'Content-Type': 'application/json'
-				});
-				return res.end(JSON.stringify(data));
-			});
-		})
-	},
-	retreive: (req, res) => {
-		const query = {};
-
-		User.find(query, (err, data) => {
-			if (err) return res.end(JSON.stringify(err.errors));
-
-			res.writeHead(200, {
-				'Content-Type': 'application/json'
-			});
-			return res.end(JSON.stringify(data));
-		});
-	},
-	get: (req, res) => {
-		User.findOne(query, (err, data) => {
-			if (err) throw err;
-
-			console.log('Achei:', data);
-		});
-	},
-	update: (req, res) => {
-		var queryData = '';
-		req.on('data', (data) => {
-			queryData += data;
-		});
-
-		req.on('end', () => {
-			const mod = querystring.parse(queryData);
-			const url_parts = url.parse(req.url);
-			const query = querystring.parse(url_parts.query);
-
-			User.update(query, mod, (err, data) => {
-				if (err) return res.end(JSON.stringify(err.errors));
-
-				res.writeHead(200, {
-					'Content-Type': 'application/json'
-				});
-				return res.end(JSON.stringify(data));
-			});
-		})
-	},
-	delete: (req, res) => {
-		const url_parts = url.parse(req.url);
-		const query = querystring.parse(url_parts.query);
-
-		console.log(query);
-
-		User.remove(query, (err, data) => {
-			if (err) return res.end(JSON.stringify(err.errors));
-
-			res.writeHead(200, {
-				'Content-Type': 'application/json'
-			});
-			return res.end(JSON.stringify(data));
-		});
-	},
+	create,
+	find,
+	findOne,
+	update,	
+	remove
 };
 
 module.exports = REPOSITORY;
