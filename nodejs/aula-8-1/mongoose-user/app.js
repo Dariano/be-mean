@@ -1,24 +1,31 @@
 'use strict';
 
-const Model = require('./model');
+const http = require('http');
+const url = require('url');
+const Controller = require('./controller');
 
-const _user = {
-	name: 'DARIO SOARES aula 8-5',
-	password: '1234567',
-	email: 'DARIO@GMAIL.COM'
-};
+var server = http.createServer(function(req, res) {
+	const url_parts = url.parse(req.url);
+	
+	switch (url_parts.pathname) {
+		case '/api/users/create':
+			Controller.create(req, res);
+			break;
+		case '/api/users/update':
+			Controller.update(req, res);
+			break;
+		case '/api/users/retreive':
+			Controller.retreive(req, res);
+			break;
+		case '/api/users/delete':
+			Controller.delete(req, res);
+			break;
+		defaul
+			res.end('ROTA NÃO ENCONTRADA');
+			break;
+	}
+});
 
-Model.create(_user);
-
- // const  query = { name: /dario soares/i };
- // Model.retreive(query);
- // Model.get(query);
-
-// const query = { _id: '56aac680ba12d97f13673e68' };
-// const mod = { password: '5&nh@F0$t&'}
-
-// Model.update(query, mod);
-
-// const query = { _id: '56a6edee0979e5fc20e1134f' };
-
-// Model.delete(query);
+server.listen(3000, () => {
+	console.log('Servidor rodando.');
+});
