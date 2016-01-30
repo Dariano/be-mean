@@ -3,20 +3,21 @@ autor: Dariano Soares
 
 ##Instale algum gerenciador de versão do Node.js e instale a versão mais atual como padrão, enquanto escrevo é a versão 5.4.0
 
+Comando
 `node -v`
 
 Saída
-
 `v5.5.0`
 
+Comando
 `npm -v`
 
 Saída
-
 `3.3.12`
 
 ##Inicie um projeto novo para essa aula, com o **npm** e instale, salvando no package.json
 
+Comando
 `npm init`
 
 package.json
@@ -77,11 +78,10 @@ script.js
 
 	console.log(__dirname);
 ```
-
+Comando
 `node script.js`
 
 Saída
-
 `/home/dariano/Documentos/Projetos/be-mean/nodejs/aula-5-1/exercicios`
 
 ##Cite 5 globais do Node.js e pelo menos 1 exemplo de cada.
