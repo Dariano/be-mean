@@ -1,0 +1,24 @@
+{
+  "name": "exercicios",
+  "version": "0.0.1",
+  "description": "Exercicio da aula 5 de nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs"
+  ],
+  "author": "dariano",
+  "license": "ISC",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  },
+  "optionalDependencies": {
+    "mongoose": "^4.3.7",
+    "optional": "^0.1.3"
+  }
+}
