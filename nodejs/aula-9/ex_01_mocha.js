@@ -10,4 +10,4 @@ function Calc() {
 const sum = (a, b) => a + b;
 const sub = (a, b) => a - b;
 
-module.exports = Calc;
+module.exports = Calc();
