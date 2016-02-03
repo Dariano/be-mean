@@ -32,16 +32,21 @@ calc.js
 	function Calc() {
 		return {
 			sum,
-			sub, 
+			sub,
 			div,
 			mult,
 			sqrt
 		};
 	};
 
+	const div = (a, b) => {
+		if(!a || !b) throw new Error("Não pode dividir por zero."); 
+
+		return a / b
+	};
+
 	const sum = (a, b) => a + b;
 	const sub = (a, b) => a - b;
-	const div = (a, b) => a / b;
 	const mult = (a, b) => a * b;
 	const sqrt = (a) => Math.sqrt(a);
 
@@ -118,13 +123,6 @@ chai-ex-01.spec.js
 
 ```js
 	describe('Calcular a divisão de dois numeros', () => {
-		it('A função deve retorna a divisão de dois numeros', () => {
-			const div = Calc.div(5, 5);
-			
-			expect(div).to.be.a('number');
-			expect(div).to.equal(1);			
-			expect(Calc).to.have.property('div');
-		});
 
 		it('A função não deve aceitar divisão por zero', () => {
 			const div = () => Calc.div(0, 0);
