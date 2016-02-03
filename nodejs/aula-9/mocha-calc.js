@@ -1,13 +1,13 @@
 'use strict';
 
-const Calc = require('./ex_01_mocha');
+const Calc = require('./ex_01_mocha_calc');
 const assert = require('assert');
 
 describe('Calc', () => {
 	describe('Calcular a soma de dois numeros', () => {
 		it('A função deve retorna a soma de dois numeros', () => {
 			const soma = Calc().sum(5, 5);
-			assert.equal(10, soma);
+			assert.deepStrictEqual(10, soma);
 			assert.deepEqual(10, soma);
 			assert.deepStrictEqual(10, soma);
 		});
