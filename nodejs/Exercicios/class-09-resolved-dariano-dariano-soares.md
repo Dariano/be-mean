@@ -20,8 +20,36 @@ autor: Dariano Soares
 
 ##2. Modifique todos os testes que estão usando assert.equal para assert.deepStrictEqual(valor, result, 'comentário') faça todos passarem, coloque os testes no md.
 
+add.spec.js
 ```js
+	'use strict';
 
+	const assert = require('assert');
+	const add = require('./add');
+
+	assert.deepStrictEqual(3, add(1, 2), "Deve retornar o valor 3");
+	assert.deepStrictEqual(5, add(1, 2, 2), "Deve retornar o valor 5");
+	assert.deepStrictEqual(10, add(1, 2, 2, 4, 1), "Deve retornar o valor 10");
+	assert.deepStrictEqual(15, add(1, 5, 4, 4, 1), "Deve retornar o valor 15");
+```
+add.js
+```js
+	'use strict';
+
+	const slice = Array.prototype.slice;
+
+	function add() {
+		const args = arguments;
+		const arr = Array.isArray(args[0]) ? args[0] : slice.call(arguments, 0);
+
+		return arr.reduce(addArr, 0);
+	}
+
+	function addArr(a, b) {
+		return a + b;
+	}
+
+	module.exports = add;
 ```
 
 #3. Na Calculadora do chai crie mais 3 testes, uma para divisão, outro para multiplicação e 1 para raiz quadrada, lembrando que não deve aceitar divisão por zero.
