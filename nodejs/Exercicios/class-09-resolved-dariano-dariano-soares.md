@@ -3,7 +3,8 @@ autor: Dariano Soares
 
 ##1. Faça uma lista de todas funções que o modulo assert possui e coloque no md.
 
-> assert(value[, message]), assert.ok(value[, message])
+> assert(value[, message]), 
+> assert.ok(value[, message])
 > assert.deepEqual(actual, expected[, message])
 > assert.deepStrictEqual(actual, expected[, message])
 > assert.doesNotThrow(block[, error][, message])
