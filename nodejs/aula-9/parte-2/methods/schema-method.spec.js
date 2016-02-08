@@ -38,7 +38,7 @@ describe('Schema method', () => {
 
 		Pokemon.create(pokes)
 			.then(pokemons => {
-				util.log(pokemons);
+				//util.log(pokemons);
 				done();
 			});
 	});
@@ -46,7 +46,7 @@ describe('Schema method', () => {
 	after(done => {
 		Pokemon.remove({})
 			.then(deleted => {
-				util.log(deleted.result);
+				//util.log(deleted.result);
 				done();
 			});
 	});
@@ -62,13 +62,16 @@ describe('Schema method', () => {
 			});
 
 			pokeFilter.findSimilarType((err, pokemons) => {
-				util.log(pokemons);
+
 				expect(pokemons).to.have.length(2);
 
 				pokemons.forEach((pokemon) => {
-					expect(pokemon.types[0]).to.be.equal('fogo');
+					util.log(pokemon.name);
+					const temFogo = pokemon.types.some((type) => type == 'fogo');
+					expect(temFogo).to.be.true('fogo');
+					expect(pokemon.name).to.be.contain('pokemon');
 				})
 			});
 		});
-	})
+	});
 });
