@@ -5,8 +5,6 @@ const Schema = mongoose.Schema;
 
 mongoose.connect('mongodb://localhost/teste');
 
-let apenasMaiusculas = texto => texto.toUpperCase();
-
 var _schema = {
 	name: String,
 	description: String,
@@ -19,9 +17,9 @@ var _schema = {
 const PokemonSchema = new Schema(_schema);
 
 PokemonSchema.methods.findSimilarType = function(cb) {
-	return this.model('Pokemon').find({
+	return this.model('pokemon').find({
 		type: this.type
 	}, cb);
 };
 
-module.exports = PokemonSchema; //mongoose.model('pokemon', PokemonSchema);
+module.exports = mongoose.model('pokemon', PokemonSchema);

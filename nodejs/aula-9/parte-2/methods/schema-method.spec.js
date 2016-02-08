@@ -1,8 +1,6 @@
 'use strict';
 
-const mongoose = require('mongoose');
-const Schema = require('./schema-method');
-const Pokemon = mongoose.model('pokemon', Schema);
+const Pokemon = require('./schema-method');
 const util = require('util');
 const expect = require('chai').expect;
 
@@ -41,7 +39,6 @@ describe('Schema method', () => {
 		Pokemon.create(pokes)
 			.then(pokemons => {
 				util.log(pokemons);
-			}).finally(() => {
 				done();
 			});
 	});
@@ -57,16 +54,21 @@ describe('Schema method', () => {
 	describe('Filtrar pokemon', () => {
 		it('do tipo fogo', () => {
 
-			const poke = new Pokemon({
+			const pokeFilter = new Pokemon({
+				name: /pokemon/i,
 				types: {
 					'$in': ['fogo']
 				}
 			});
 
-			poke.findSimilarType((err, pokemons) => {
+			pokeFilter.findSimilarType((err, pokemons) => {
 				util.log(pokemons);
 				expect(pokemons).to.have.length(2);
+
+				pokemons.forEach((pokemon) => {
+					expect(pokemon.types[0]).to.be.equal('fogo');
+				})
 			});
-		})
+		});
 	})
 });
