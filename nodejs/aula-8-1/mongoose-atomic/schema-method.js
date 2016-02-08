@@ -21,6 +21,7 @@ PokemonSchema.methods.findSimilarType = function(cb) {
 };
 
 const Pokemon = mongoose.model('Pokemon', PokemonSchema);
+
 const poke = new Pokemon({
 	name: 'Charmander',
 	types: { '$in' : ['fire']}
