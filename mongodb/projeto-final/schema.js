@@ -1,19 +1,3 @@
-var project = {
-	name: : { type: },
-	description: { type: },
-	date_begin: { type: },
-	date_dream: { type: },
-	date_end: { type: },
-	visible: { type: },
-	realocate: { type: },
-	expired: { type: },
-	visualizable_mod: { type: }
-	goal,
-	tags: [tag],
-	members: []
-
-};
-
 var goal = {
 	name: { type: },
 	description: { type: },
@@ -49,7 +33,7 @@ var activity = {
 		date_realocate: { type: Date },
 		files: [file]
 	},
-	members: []
+	members: [user]
 };
 
 var historic = {
