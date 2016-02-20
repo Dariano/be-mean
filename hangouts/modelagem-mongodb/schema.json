@@ -1,0 +1,83 @@
+// Collections usuarios
+usuario = {
+	nome: {
+		type: String
+	},
+	email: {
+		type: String
+	},
+	cpf: {
+		type: String
+	}
+};
+
+// Collectins compras
+compra = {
+	usuario: {
+		type: ObjectId
+	},
+	data: {
+		type: Date
+	},
+	ingresso: [{
+		evento: {
+			type: ObjectId
+		},
+		valor: {
+			type: Number
+		},
+		tipo: {
+			type: String
+		}
+	}]
+	total: {
+		type: Number
+	},
+	quantidade: {
+		type: Number
+	}
+}
+
+// Collecitons de eventos
+evento = {
+	descricao: {
+		type: String
+	},
+	data: {
+		type: Date
+	},
+	resulmo: {
+		type: String
+	},
+	image: {
+		type: Binary
+	},
+	categoria: {
+		type: String
+	},
+	integrantes: [{
+		funcao: {
+			type: String
+		},
+		nome: {
+			type: String
+		}
+	}],
+	ambiente: {
+		descricao: {
+			type: String
+		},
+		setor: {
+			type: String
+		},
+		local: {
+			type: String
+		},
+		referencia: {
+			type: String
+		},
+		tipo_ambiente: {
+			type: String
+		}
+	}
+}
